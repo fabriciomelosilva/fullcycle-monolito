@@ -51,8 +51,8 @@ describe("InvoiceRepository test", () => {
 
     const invoice = new Invoice({
       id: new Id("123"),
-      name: "Invoice 1",
-      document: "Document 1",
+      name: "Invoice teste",
+      document: "Document teste",
       items: [product1, product2],
       address: address,
     });
@@ -76,19 +76,19 @@ describe("InvoiceRepository test", () => {
   it("should find an invoice", async () => {
     const invoiceCreated = await InvoiceModel.create({
       id: "321",
-      name: "Invoice 2",
-      document: "Document 2",
+      name: "Invoice teste 2",
+      document: "Document teste 2",
       createdAt: new Date(),
       updatedAt: new Date(),
       items: [
         {
           id: new Id("1"),
-          name: "Product 1",
+          name: "Notebook",
           price: 100,
         },
         {
           id: new Id("2"),
-          name: "Product 2",
+          name: "Desktop",
           price: 200,
         },
       ],

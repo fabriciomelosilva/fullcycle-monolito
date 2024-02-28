@@ -33,13 +33,9 @@ function invoiceModelToInvoice(invoiceModel: InvoiceModel): Invoice {
 
 export class InvoiceRepository implements InvoiceGateway {
   async find(id: string): Promise<Invoice> {
-    try {
-      const invoiceOnDB = await InvoiceModel.findByPk(id);
-      const invoice = invoiceModelToInvoice(invoiceOnDB);
-      return invoice;
-    } catch (e) {
-      throw new Error("Invoice does not exist.");
-    }
+    const invoiceOnDB = await InvoiceModel.findByPk(id);
+    const invoice = invoiceModelToInvoice(invoiceOnDB);
+    return invoice;
   }
 
   async add(invoice: Invoice): Promise<Invoice> {
